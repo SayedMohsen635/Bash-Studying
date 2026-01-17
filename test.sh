@@ -57,7 +57,7 @@ echo "Length of ${str} is ${strlength} and substr of it is ${substr}"
 # -------------------------------
 
 name="sayed elhassan mohamed"
-IFS=' ' # delimiter
+IFS=' '                 # delimiter
 read -ra ADD <<<"$name" # reading name as an array
 echo ${ADD[2]}
 arrElements=${ADD[@]}
@@ -81,12 +81,12 @@ echo "${sentence##*/}"
 
 ###FUNCTIONS###
 
-DisplayName(){
+DisplayName() {
   echo "Hello Name"
 }
 
-DisplayNameArgs(){
-  echo $0 $1 $2 $3 $4
+DisplayNameArgs() {
+  echo "$0" "$1" "$2" "$3" "$4"
   echo $# # Display number of args printed
 }
 
@@ -118,7 +118,7 @@ function getSquare() {
   echo $(($1 * $1))
 }
 
-echo $(getSquare 5)
+getSquare 8
 
 # -------------------------------
 
