@@ -1,0 +1,29 @@
+#!/bin/bash
+
+cmdlist=~/.cmdlist
+exe=/tmp/tempcmd
+
+if [ $# == 0 ]; then
+  echo "Usage: cmd <command>"
+  echo -e "\nYour Commands : "
+  cat "${cmdlist}"
+  exit 1
+fi
+
+key=$1
+cmd=""
+
+while read -r line; do
+  echo "${line}" | grep ^"${key}"
+  if [ $? == 0 ]; then
+    cmd=$(echo "${line}" | cut -d = -f 2)
+  fi
+done <"${cmdlist}"
+
+if [ -z "${cmd}" ]; then
+  echo "Command isn't existed, choose one of below"
+  cat ${cmdlist}
+else
+  echo "${cmd}" >"${exe}"
+  bash "${exe}"
+fi
