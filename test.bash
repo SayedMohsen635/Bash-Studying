@@ -59,11 +59,11 @@ echo "Length of ${str} is ${strlength} and substr of it is ${substr}"
 name="sayed elhassan mohamed"
 IFS=' '                 # delimiter
 read -ra ADD <<<"$name" # reading name as an array
-echo ${ADD[2]}
-arrElements=${ADD[@]}
+echo "${ADD[2]}"
+arrElements=${ADD[*]}
 arrLen=${#ADD[@]}
-echo ${arrElements}
-echo ${arrLen}
+echo "${arrElements}"
+echo "${arrLen}"
 
 # -------------------------------
 
