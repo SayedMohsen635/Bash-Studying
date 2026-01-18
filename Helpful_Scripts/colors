@@ -1,0 +1,19 @@
+#!/bin/bash
+
+declare -A colors=([RED]="\e[31m"
+  [GREEN]="\e[32m"
+  [YELLOW]="\e[33m"
+  [BLUE]="\e[34m"
+  [MAGENTA]="\e[35m"
+  [CYAN]="\e[36m"
+  [WHITE]="\e[37m"
+  [BOLD]="\e[1m"
+  [ITALIC]="\e[3m"
+  [UNDERLINE]="\e[4m"
+  [RESET]="\e[0m")
+
+color_names=("RED" "GREEN" "YELLOW" "BLUE" "MAGENTA" "CYAN" "WHITE" "BOLD" "ITALIC" "UNDERLINE" "RESET")
+
+selected_color=$(printf "%s\n" "${color_names[@]}" | rofi -dmenu -p "Select a color ")
+
+xdotool type -delay 10 "${colors[$selected_color]}"
