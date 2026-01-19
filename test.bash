@@ -134,5 +134,3 @@ while true; do
   echo "waiting for signal..."
   sleep 1
 done
-
-# -------------------------------
