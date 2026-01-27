@@ -1,17 +1,16 @@
 #!/bin/bash
 
-values=$(cat "/home/sayed/mydata.txt")
+values=$(cat "/home/sayed/paths.txt")
 echo "${values[@]}"
 
 selected_value=$(echo -e "${values[@]}" | rofi -dmenu -p "ADD/RM/SELECT ")
-set -x
 
 if [[ "$selected_value" == "ADD" ]]; then
   result=$(rofi -dmenu -p "Enter something")
   echo "You entered: ${result}"
-  echo "$result" >>"/home/sayed/mydata.txt"
+  echo "$result" >>"/home/sayed/paths.txt"
 elif [[ "$selected_value" == "RM" ]]; then
-  /usr/bin/x-terminal-emulator -e "/bin/bash -i -c 'nano /home/sayed/mydata.txt'"
+  nano /home/sayed/paths.txt
 elif [[ -n $selected_value ]]; then
-  xdotool type --delay 10 "$selected_value"
+  code "$selected_value"
 fi
