@@ -5,12 +5,12 @@ echo "${values[@]}"
 
 selected_value=$(echo -e "${values[@]}" | rofi -dmenu -p "ADD/RM/SELECT ")
 
-if [[ "$selected_value" == "ADD" ]]; then
+if [[ "$selected_value" == "ADD" || "$selected_value" == "add" ]]; then
   result=$(rofi -dmenu -p "Enter something")
   echo "You entered: ${result}"
   echo "$result" >>"/home/sayed/paths.txt"
-elif [[ "$selected_value" == "RM" ]]; then
-  nano /home/sayed/paths.txt
+elif [[ "$selected_value" == "RM" || "$selected_value" == "rm" ]]; then
+  gnome-terminal -- vim /home/sayed/paths.txt # specify the file of your PATHS
 elif [[ -n $selected_value ]]; then
   code "$selected_value"
 fi
