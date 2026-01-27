@@ -38,9 +38,9 @@ EOF
 
 echo "File created locally at ${servicePath}/${serviceName}.service"
 
-echo "Linking to systemd..."
+echo "Copying to systemd..."
 cp "${servicePath}/${serviceName}.service" "${systemPath}/${serviceName}.service"
 sudo systemctl daemon-reload
 
-echo "Done, service is linked to systemd and ready to use!"
+echo "Done, service is copied to systemd and ready to use!"
 echo "To start the service use this command ==> sudo systemctl enable ${serviceName}.service"
