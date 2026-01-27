@@ -39,7 +39,7 @@ EOF
 echo "File created locally at ${servicePath}/${serviceName}.service"
 
 echo "Linking to systemd..."
-sudo ln -sf "${servicePath}/${serviceName}.service" "${systemPath}/${serviceName}.service"
+cp "${servicePath}/${serviceName}.service" "${systemPath}/${serviceName}.service"
 sudo systemctl daemon-reload
 
 echo "Done, service is linked to systemd and ready to use!"
